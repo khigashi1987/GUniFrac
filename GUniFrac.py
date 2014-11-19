@@ -16,7 +16,7 @@ def compute_GUniFrac(abundance,treefile, alpha=0.5, unweighted=False):
     n_samples = len(abundance.columns)
     n_distance = n_samples * (n_samples - 1) / 2
     d_array = np.zeros((n_distance))
-    t = Tree(treefile)
+    t = Tree(treefile,format=1)
     if set(t.get_leaf_names()) != set(abundance.index):
         print 'Error: OTU table contains unknown OTUs. All of OTU names in OTU table should be contained in tree file.'
         quit()
